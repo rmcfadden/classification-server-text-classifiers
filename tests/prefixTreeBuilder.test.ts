@@ -15,7 +15,7 @@ test("build", async () => {
     ];
 
     const node = build(labels);
-    expect(node.value).toBe(undefined);
+    expect(node.labels.length).toBe(0);
 
     const madeUpFruitNode = node!.children
         .get("b")!
@@ -23,7 +23,7 @@ test("build", async () => {
         .children.get("n")!
         .children.get("a")!;
     expect(madeUpFruitNode?.children.size).toBe(1);
-    expect(madeUpFruitNode?.value).toBe("madeupfruit");
+    expect(madeUpFruitNode?.labels[0]).toBe("madeupfruit");
 
     const fruitNode = node!.children
         .get("b")!
@@ -33,11 +33,11 @@ test("build", async () => {
         .children.get("n")!
         .children.get("a")!;
     expect(fruitNode?.children.size).toBe(1);
-    expect(fruitNode?.value).toBe("fruit");
+    expect(fruitNode?.labels[0]).toBe("fruit");
 
     const fruitsNode = fruitNode.children.get("s");
     expect(fruitsNode?.children.size).toBe(0);
-    expect(fruitsNode?.value).toBe("fruit");
+    expect(fruitsNode?.labels[0]).toBe("fruit");
 
     const cNode = node!.children.get("c")!;
     expect(cNode).toBe(undefined);

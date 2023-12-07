@@ -10,10 +10,11 @@ export const PrefixTreeBuilder = () => {
                 a.children.get(c) ??
                 a.children
                     .set(c, {
+                        labels: [],
                         children: new Map<string, PrefixTreeNode>(),
                     })
                     .get(c)!;
-            current.value = i === length - 1 ? label : current.value;
+            current.labels = i === length - 1 ? [label, ...current.labels] : current.labels;
             return current;
         }, node);
     };
@@ -23,7 +24,7 @@ export const PrefixTreeBuilder = () => {
                 add(a, c);
                 return a;
             },
-            { children: new Map<string, PrefixTreeNode>() }
+            { labels: [], children: new Map<string, PrefixTreeNode>() }
         );
     return { add, build };
 };

@@ -1,4 +1,4 @@
 export interface PrefixTreeNode {
-    value?: string;
+    labels: string[];
     children: Map<string, PrefixTreeNode>;
 }
