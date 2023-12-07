@@ -6,7 +6,7 @@ import {
     ModelBase,
 } from "classification-server/types";
 
-export const PrefixTreeTextModel = (textLabels: TextLabel[]) => {
+export const PrefixTreeTextModel = (labels: TextLabel[]) => {
     const predict = async (input: string): Promise<PredictionResult> =>
         ({
             predictions: [],
