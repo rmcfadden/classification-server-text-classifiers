@@ -3,7 +3,7 @@ import {
     LabelClassifyResponse,
     ClassifyDataSetQuery,
 } from "classification-server/types";
-import { PrefixTreeTextClassifier } from "../src/prefixTreeTextClassifier";
+import { TrieTextClassifier } from "../src/trieTextClassifier";
 
 test("predict", async () => {
     const items: TextLabel[] = [
@@ -15,7 +15,7 @@ test("predict", async () => {
         { text: "barley", label: "grain" },
         { text: "barley", label: "seed" },
     ];
-    const { classify } = PrefixTreeTextClassifier();
+    const { classify } = TrieTextClassifier();
     const {
         predictions: [predication1, predication2],
     } = (await classify({

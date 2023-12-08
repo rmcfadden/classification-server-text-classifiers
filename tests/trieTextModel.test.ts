@@ -3,7 +3,7 @@ import {
     LabelPredictionResult,
     LabelClassifyResponse,
 } from "classification-server/types";
-import { PrefixTreeTextModel } from "../src/prefixTreeTextModel";
+import { TrieTextModel } from "../src/trieTextModel";
 test("predict", async () => {
     const labels: TextLabel[] = [
         { text: "apple", label: "fruit" },
@@ -13,7 +13,7 @@ test("predict", async () => {
         { text: "oats", label: "grain" },
         { text: "barley", label: "grain" },
     ];
-    const { predict } = PrefixTreeTextModel(labels);
+    const { predict } = TrieTextModel(labels);
     const {
         predictions: [prediction],
     }: LabelPredictionResult = (await predict("apple")) as LabelClassifyResponse;

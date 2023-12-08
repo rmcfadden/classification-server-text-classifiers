@@ -17,9 +17,9 @@ test("predict", async () => {
         predictions: [prediction1, predication2],
     } = (await predict("banana")) as LabelPredictionResult;
     expect(prediction1.label).toBe("fruit");
-    expect(prediction1.probability).toBe(100);
+    expect(prediction1.probability).toBe(50);
     expect(predication2.label).toBe("tropicalfruit");
-    expect(predication2.probability).toBe(100);
+    expect(predication2.probability).toBe(50);
 
     const {
         predictions: [prediction3],

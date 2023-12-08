@@ -5,13 +5,13 @@ import {
     LabelPredictionResult,
     ModelBase,
 } from "classification-server/types";
-import { PrefixTreeBuilder } from "./prefixTreeBuilder";
-import { PrefixTreeSearcher } from "./prefixTreeSearcher";
+import { TrieBuilder } from "./trieBuilder";
+import { TrieSearcher } from "./trieSearcher";
 
-export const PrefixTreeTextModel = (labels: TextLabel[]) => {
-    const { build } = PrefixTreeBuilder();
+export const TrieTextModel = (labels: TextLabel[]) => {
+    const { build } = TrieBuilder();
     const root = build(labels);
-    const { search } = PrefixTreeSearcher();
+    const { search } = TrieSearcher();
     const predict = async (input: string): Promise<PredictionResult> => {
         const results = search(input, root);
         return {
@@ -21,6 +21,6 @@ export const PrefixTreeTextModel = (labels: TextLabel[]) => {
             })),
         } as LabelPredictionResult;
     };
-    const train = async ({ items }: DataSet) => PrefixTreeTextModel(items as TextLabel[]);
-    return { predict, train, name: "PrefixTreeTextModel" } as ModelBase;
+    const train = async ({ items }: DataSet) => TrieTextModel(items as TextLabel[]);
+    return { predict, train, name: "TrieTextModel" } as ModelBase;
 };

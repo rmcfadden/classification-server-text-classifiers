@@ -1,8 +1,8 @@
 import { TextLabel } from "classification-server/types";
-import { PrefixTreeBuilder } from "../src/prefixTreeBuilder";
+import { TrieBuilder } from "../src/trieBuilder";
 
 test("build", async () => {
-    const { build } = PrefixTreeBuilder();
+    const { build } = TrieBuilder();
     const labels: TextLabel[] = [
         { text: "banana", label: "fruit" },
         { text: "bananas", label: "fruit" },

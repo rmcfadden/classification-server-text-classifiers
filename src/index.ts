@@ -1,3 +1,3 @@
 export { HashingTextModel } from "./hashingTextModel";
-export { PrefixTreeTextClassifier } from "./prefixTreeTextClassifier";
-export { PrefixTreeTextModel } from "./prefixTreeTextModel";
+export { TrieTextClassifier as PrefixTreeTextClassifier } from "./trieTextClassifier";
+export { TrieTextModel as PrefixTreeTextModel } from "./trieTextModel";

@@ -1,6 +1,6 @@
-import { PrefixTreeNode } from "./prefixTreeNode";
-export const PrefixTreeSearcher = () => {
-    const search = (needle: string, node: PrefixTreeNode | undefined): string[] =>
+import { TrieNode } from "./trieNode";
+export const TrieSearcher = () => {
+    const search = (needle: string, node: TrieNode | undefined): string[] =>
         needle
             .split("")
             .reduce(

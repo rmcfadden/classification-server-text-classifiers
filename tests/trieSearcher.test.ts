@@ -1,6 +1,6 @@
 import { TextLabel } from "classification-server/types";
-import { PrefixTreeSearcher } from "../src/prefixTreeSearcher";
-import { PrefixTreeBuilder } from "../src/prefixTreeBuilder";
+import { TrieSearcher } from "../src/trieSearcher";
+import { TrieBuilder } from "../src/trieBuilder";
 
 test("search", async () => {
     const labels: TextLabel[] = [
@@ -14,10 +14,10 @@ test("search", async () => {
         { text: "barley", label: "grain" },
     ];
 
-    const { build } = PrefixTreeBuilder();
+    const { build } = TrieBuilder();
     const node = build(labels);
 
-    const { search } = PrefixTreeSearcher();
+    const { search } = TrieSearcher();
     const foundLabels = search("banana", node);
     expect(foundLabels).toStrictEqual(["tropicalfruit", "fruit"]);
 
