@@ -3,7 +3,6 @@ import { PrefixTreeBuilder } from "../src/prefixTreeBuilder";
 
 test("build", async () => {
     const { build } = PrefixTreeBuilder();
-
     const labels: TextLabel[] = [
         { text: "banana", label: "fruit" },
         { text: "bananas", label: "fruit" },

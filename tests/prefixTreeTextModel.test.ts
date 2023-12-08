@@ -1,4 +1,8 @@
-import { TextLabel, LabelPredictionResult } from "classification-server/types";
+import {
+    TextLabel,
+    LabelPredictionResult,
+    LabelClassifyResponse,
+} from "classification-server/types";
 import { PrefixTreeTextModel } from "../src/prefixTreeTextModel";
 test("predict", async () => {
     const labels: TextLabel[] = [
@@ -12,7 +16,7 @@ test("predict", async () => {
     const { predict } = PrefixTreeTextModel(labels);
     const {
         predictions: [prediction],
-    }: LabelPredictionResult = (await predict("apple")) as LabelPredictionResult;
+    }: LabelPredictionResult = (await predict("apple")) as LabelClassifyResponse;
     const { label, probability } = prediction;
     expect(label).toBe("fruit");
     expect(probability).toBe(100);
