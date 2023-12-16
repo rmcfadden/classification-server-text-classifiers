@@ -1,5 +1,5 @@
-import { TextLabel, LabelPredictionResult } from "classification-server/types";
-import { NeuralTextModel } from "../src/neuralTextModel";
+import { TextLabel } from "classification-server/types";
+import { BrainJSNeuralTextModel } from "../src/brainJSNeuralTextModel";
 
 test("predict", async () => {
     const labels: TextLabel[] = [
@@ -12,6 +12,5 @@ test("predict", async () => {
         { text: "oat", label: "grain" },
         { text: "barley", label: "grain" },
     ];
-    const { predict } = NeuralTextModel(labels);
-
+    const { predict } = BrainJSNeuralTextModel(labels);
 });
