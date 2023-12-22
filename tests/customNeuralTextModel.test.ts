@@ -1,7 +1,7 @@
-import { TextLabel } from "classification-server/types";
+import { TextLabel, DataSet } from "classification-server/types";
 import { CustomNeuralTextModel } from "../src/customNeuralTextModel";
 
-test("predict", async () => {
+test("train and predict", async () => {
     const labels: TextLabel[] = [
         { text: "banana", label: "fruit" },
         { text: "banana", label: "tropicalfruit" },
@@ -12,5 +12,10 @@ test("predict", async () => {
         { text: "oat", label: "grain" },
         { text: "barley", label: "grain" },
     ];
-    const { predict } = CustomNeuralTextModel(labels);
+    const { train } = CustomNeuralTextModel([]);
+    const { predict } = await train({
+        items: labels,
+        name: "fruit",
+        dataTypes: "textLabel",
+    } as DataSet);
 });
